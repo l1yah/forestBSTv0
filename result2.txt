@@ -1,0 +1,35 @@
+animal bird device fish fruit 
+======animal======
+cat cow deer dog horse lion panda raccoon tiger 
+======bird======
+bluejay cardinal crow dove 
+======device======
+3DS GameBoy PC iPad iPhone 
+======fish======
+catfish eel jellyfish salmon shark 
+======fruit======
+apple apricot avocado banana coconut cranberry mango nectarine peach starfruit 
+
+
+======== Processing Commands ========
+25 avocado in tree fruit
+item sardine doesn't exist in tree fish
+15 cow in tree animal
+20 crow in tree bird
+10 iPad in tree device
+item cow doesn't exist in tree bird
+30 cat in tree animal
+items before deer: 6
+tree animal has a left height of -1, a right height of 4, and a difference of 5. not balanced.
+tree bird has a left height of -1, a right height of 1, and a difference of 2. not balanced.
+tree fish has a left height of 2, a right height of -1, and a difference of 3. not balanced.
+tree flower doesn't exist
+total number of items in tree device: 66
+total number of items in tree animal: 142
+total number of items in tree fruit: 515
+item cat from tree animal has been deleted
+item cat doesn't exist in tree animal
+total number of items in tree animal: 112
+item jellyfish from tree fish has been deleted
+item avocado from tree fruit has been deleted
+tree animal has been deleted

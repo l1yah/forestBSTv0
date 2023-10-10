@@ -141,7 +141,7 @@ treeNameNode *searchTopHalf(treeNameNode *rootNode, char *treeInputName){
     }
     
 }
-itemNode *search_lower_half(itemNode *parent, char *itemInputName){
+itemNode *searchLowerHalf(itemNode *parent, char *itemInputName){
     if (parent == NULL){
         return parent;
     }
@@ -150,10 +150,10 @@ itemNode *search_lower_half(itemNode *parent, char *itemInputName){
             return parent;
         }
         if (strcmp(parent->name, itemInputName) > 0){
-            return (search_lower_half(parent->left, itemInputName));
+            return (searchLowerHalf(parent->left, itemInputName));
         }
         else{
-            return(search_lower_half(parent->right, itemInputName));
+            return(searchLowerHalf(parent->right, itemInputName));
         }
     }
 }
@@ -219,7 +219,7 @@ treeNameNode *deletetreeNode(treeNameNode *parent, char *deletename){
             free(parent);
             return temp;
         }
-        else{ //condition #3: two children
+        else{ 
             treeNameNode *temp = findMinChild_tree(parent->right);
             strcpy(temp->treeName, parent->treeName);
             parent->theTree = temp->theTree;
@@ -230,7 +230,7 @@ treeNameNode *deletetreeNode(treeNameNode *parent, char *deletename){
 
 }
 
-void delete_tree(treeNameNode *parent, char *name){
+void deleteTree(treeNameNode *parent, char *name){
     deletetreeNode(parent, name);
 }
 
@@ -243,14 +243,14 @@ void InOrderTraversal(treeNameNode *rootNode, FILE *out){
     }
 }
 
-void itemNode_traverse_in_order(itemNode *parent, FILE *out){
+void itemNodeInOrderTraversal(itemNode *parent, FILE *out){
     if (parent!= NULL){
 
-        itemNode_traverse_in_order(parent->left, out);
+        itemNodeInOrderTraversal(parent->left, out);
 
         fprintf(out, "%s ", parent->name);
 
-        itemNode_traverse_in_order(parent->right, out);
+        itemNodeInOrderTraversal(parent->right, out);
     }
 }
 
@@ -259,7 +259,7 @@ void itemsInOrderTraversal(treeNameNode *parent, FILE *out){
         itemsInOrderTraversal(parent->left, out);
 
         fprintf(out, "\n======%s======\n", parent->treeName);
-        itemNode_traverse_in_order(parent->theTree, out);
+        itemNodeInOrderTraversal(parent->theTree, out);
 
         itemsInOrderTraversal(parent->right, out);
     }
@@ -411,8 +411,8 @@ void commands(FILE *in, FILE *out, treeNameNode *rootNode, int totalCommandNum){
              commandcount--;
             }
           else{
-             itemNode *ipt = search_lower_half(pt->theTree, item);
-             if (search_lower_half(pt->theTree, item) != NULL && delcount < 1){
+             itemNode *ipt = searchLowerHalf(pt->theTree, item);
+             if (searchLowerHalf(pt->theTree, item) != NULL && delcount < 1){
                   fprintf(out, "%d %s in tree %s\n",ipt->count, ipt->name, tree);
                  commandcount--;
                }
@@ -432,7 +432,7 @@ void commands(FILE *in, FILE *out, treeNameNode *rootNode, int totalCommandNum){
         }
         else if (strcmp(command, "delete_tree") == 0){
             fscanf(in, "%s", tree);
-            delete_tree(rootNode, tree);
+            deleteTree(rootNode, tree);
             fprintf(out, "tree %s has been deleted\n", tree);
             commandcount = 0;
         }
@@ -469,8 +469,8 @@ int main(void){
     char itemName[32];
     int count;
     
-    FILE *in = fopen("sampleInput.txt", "r");
-    FILE *out = fopen("result.txt", "w");
+    FILE *in = fopen("sampleInput-2.txt", "r");
+    FILE *out = fopen("result2.txt", "w");
 
     readNextLine(in, buff, 255);
     sscanf(buff, "%d %d %d", &nTrees, &nItems, &nCommands);

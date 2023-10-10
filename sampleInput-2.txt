@@ -1,0 +1,60 @@
+5 33 21
+fish
+animal
+bird
+fruit
+device
+animal cat 30
+device iPad 10
+fish shark 50
+animal dog 20
+bird bluejay 10
+animal raccoon 10
+fruit starfruit 100
+animal panda 50
+device GameBoy 15
+animal tiger 3
+animal lion 3
+device iPhone 5
+device 3DS 13 
+fish jellyfish 10
+animal deer 5
+animal cow 15
+fish eel 5
+fish catfish 55
+fish salmon 40
+bird crow 20
+device PC 23
+bird dove 10
+bird cardinal 15
+fruit apple 50
+fruit banana 50
+fruit nectarine 10
+fruit coconut 10
+fruit peach 40
+fruit apricot 30
+fruit avocado 25
+fruit mango 100
+fruit cranberry 100
+animal horse 6
+search fruit avocado
+search fish sardine
+search animal cow
+search bird crow
+search device iPad
+search bird cow
+search animal cat
+item_before animal deer
+height_balance animal
+height_balance bird
+height_balance fish
+search flower rose
+count device 
+count animal
+count fruit
+delete animal cat
+search animal cat
+count animal
+delete fish jellyfish
+delete fruit avocado
+delete_tree animal
